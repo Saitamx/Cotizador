@@ -15,39 +15,30 @@ const ContenedorFormulario = styled.div`
   background-color: #fff;
   padding: 3rem;
 `;
-//  Styled componenets tienen apertura y cierre dependiendo de la etiqueta
+
 function App() {
-  const [resumen, guardarResumen] = useState({
+  const [resumen, setResumen] = useState({
     cotizacion: 0,
     datos: {
       marca: "",
       year: "",
-      plan: ""
-    }
+      plan: "",
+    },
   });
 
-  const [cargando, guardarCargando] = useState(false);
+  const [cargando, setCargando] = useState(false);
 
-  // Extraer datos
+  // extraer datos
   const { cotizacion, datos } = resumen;
 
   return (
     <Contenedor>
       <Header titulo="Cotizador de Seguros" />
-
       <ContenedorFormulario>
-        <Formulario
-          guardarResumen={guardarResumen}
-          guardarCargando={guardarCargando}
-        />
-
+        <Formulario setResumen={setResumen} setCargando={setCargando} />
         {cargando ? <Spinner /> : null}
-
         <Resumen datos={datos} />
-
-        {!cargando ? 
-          <Resultado cotizacion={cotizacion} /> 
-            : null}
+        {!cargando ? <Resultado cotizacion={cotizacion} /> : null}
       </ContenedorFormulario>
     </Contenedor>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
@@ -16,16 +16,16 @@ const TextoHeader = styled.h1`
     text-align: center;
 `;
 
-const Header = ({ titulo }) => {
-  return (
-    <ContenedorHeader>
-      <TextoHeader> {titulo} </TextoHeader>
-    </ContenedorHeader>
-  );
+const Header = ({titulo}) => {
+    return (
+        <ContenedorHeader>
+            <TextoHeader>{titulo}</TextoHeader>
+        </ContenedorHeader>
+    );
 };
 
 Header.propTypes = {
-  titulo: PropTypes.string.isRequired
+    titulo : PropTypes.string.isRequired,
 }
 
 export default Header;
